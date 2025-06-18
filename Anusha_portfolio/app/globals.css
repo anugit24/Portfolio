@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 30% 98%;
+    --foreground: 142 50% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 142 50% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 142 50% 12%;
+
+    --primary: 142 50% 35%;
+    --primary-foreground: 60 100% 97%;
+
+    --secondary: 60 90% 50%;
+    --secondary-foreground: 142 50% 12%;
+
+    --muted: 60 30% 96%;
+    --muted-foreground: 142 20% 40%;
+
+    --accent: 60 90% 50%;
+    --accent-foreground: 142 50% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 100% 97%;
+
+    --border: 142 20% 85%;
+    --input: 142 20% 85%;
+    --ring: 142 50% 35%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.skill-badge {
+  @apply bg-primary-green text-white hover:bg-secondary-green transition-colors;
+}
+
+.project-card {
+  @apply border-primary-green hover:border-secondary-yellow transition-all duration-300 hover:shadow-lg hover:shadow-primary-yellow/20;
+}
+
+.section-title {
+  @apply text-primary-green;
+}
+
+.section-subtitle {
+  @apply text-secondary-green;
+}
+
+.highlight-text {
+  @apply text-primary-yellow font-bold;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+}
+
+.animate-on-scroll.animated {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.skill-bar {
+  position: relative;
+  height: 8px;
+  background-color: rgba(46, 139, 87, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #2e8b57;
+  border-radius: 4px;
+  width: 0;
+}
+
+.skill-progress.animated {
+  animation: progress-fill 1.5s ease-out forwards;
+}
+
+.typing-container {
+  display: inline-block;
+}
+
+.typing-text {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #2e8b57;
+  width: 0;
+}
+
+.typing-text.animated {
+  animation: typing 3.5s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background-color: #2e8b57;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -12px;
+  background-color: #ffd700;
+  border: 4px solid #2e8b57;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+.timeline-item.right::after {
+  left: -12px;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline-item.right {
+    left: 0%;
+  }
+
+  .timeline-item::after {
+    left: 18px;
+  }
+
+  .timeline-item.right::after {
+    left: 18px;
+  }
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 215, 0, 0.6);
+  pointer-events: none;
+}
